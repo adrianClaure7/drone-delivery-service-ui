@@ -24,6 +24,11 @@ http://localhost:4200
 **Note:** Make sure the backend server is up and running at http://localhost:5188.
 
 
+## File Example
+
+The project includes a file example called "FileExample" that contains a sample input file with drones and locations. You can use this file as a reference when preparing your own input files.
+
+
 ## Running Unit Tests
 
 Run the following command to execute the unit tests:
@@ -37,4 +42,4 @@ For more information on the Angular CLI, refer to the [Angular CLI Overview and 
 
 ## Credits
 
-Development: Adrian Claure
+Development: Adrian Claure 
