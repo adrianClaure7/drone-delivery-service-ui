@@ -1,27 +1,40 @@
-# DroneDeliveryServiceUi
+# Drone Delivery Service UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+This Angular 16 project allows you to assign locations to drones in different trips. The application takes a file containing drone and location data, converts it to JSON format, and sends it to the corresponding API in the C# backend. The backend processes the data, assigns the locations to the drones, and returns the result. The application then converts the received data into the required string format.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone the repository:
 
-## Code scaffolding
+https://github.com/your-username/your-repo.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Install dependencies:
 
-## Build
+npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Start the development server:
+ng serve
 
-## Running end-to-end tests
+2. Open your browser and navigate to:
+http://localhost:4200
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Note:** Make sure the backend server is up and running at http://localhost:5188.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Running Unit Tests
+
+Run the following command to execute the unit tests:
+
+ng test
+
+
+## Further Help
+
+For more information on the Angular CLI, refer to the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Credits
+
+Development: Adrian Claure

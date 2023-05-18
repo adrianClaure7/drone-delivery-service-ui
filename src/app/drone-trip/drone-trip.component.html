@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title *ngIf="!contentForm.value.dataResult">Add File with drones and locations</mat-card-title>
+          <mat-card-title *ngIf="contentForm.value.dataResult">Restart the app</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="w-100">
+          <div *ngIf="!contentForm.value.dataResult">
+            <h4>Select the file</h4>
+            <div class="input-group-append">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" (change)="onFileSelected($event)" accept=".txt">
+                <label class="custom-file-label">Choose file</label>
+              </div>
+            </div>
+            <div class="spinner-border text-primary f-left" role="status" *ngIf="showSpinner">
+              <span class="sr-only"></span>
+            </div>
+          </div>
+          <div *ngIf="contentForm.value.dataResult">
+            <button mat-raised-button color="primary" (click)="refresh()">Refresh</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-12">
+      <mat-card *ngIf="contentForm.value.dataResult">
+        <mat-card-header>
+          <mat-card-title>Result:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="contentForm">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Drone Trips </mat-label>
+              <textarea  rows="9" matInput type="text" formControlName="dataResult" placeholder="Drone Trips"
+                readonly=""></textarea>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
