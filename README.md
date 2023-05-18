@@ -26,7 +26,7 @@ http://localhost:4200
 
 ## File Example
 
-The project includes a file example called "FileExample" that contains a sample input file with drones and locations. You can use this file as a reference when preparing your own input files.
+The project includes a file example called "FileExample.txt" that contains a sample input file with drones and locations. You can use this file as a reference when preparing your own input files.
 
 
 ## Running Unit Tests
