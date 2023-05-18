@@ -6,7 +6,7 @@ This Angular 16 project allows you to assign locations to drones in different tr
 
 1. Clone the repository:
 
-https://github.com/your-username/your-repo.git
+https://github.com/adrianClaure7/drone-delivery-service-ui.git
 
 2. Install dependencies:
 
