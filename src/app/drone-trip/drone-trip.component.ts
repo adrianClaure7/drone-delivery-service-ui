@@ -19,7 +19,7 @@ export class DroneTripComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.contentForm = this.fb.group({
       dataResult: [''],
     });
@@ -45,23 +45,29 @@ export class DroneTripComponent implements OnInit {
         that.fileContent = reader.result as string;
 
         // Convert the string to JSON representing drones and locations
-        const data = ConverterJsonString.convertStringToJsonOfDronesAndLocations(that.fileContent);
+        const data: any = ConverterJsonString.convertStringToJsonOfDronesAndLocations(that.fileContent);
 
-        // Make an API call to assign locations to drones
-        that.droneTripService.assignLocationsToDrones(data).subscribe({
-          next: (droneTrips: any) => {
-            // Update the form with the result of the API call
-            let dataResult = ConverterJsonString.convertDroneTripsJsonToString(droneTrips);
-            that.contentForm.patchValue({ dataResult })
-            that.showSpinner = false;
-            resolve(dataResult);
-          },
-          error: (error) => {
-            that.showSpinner = false;
-            console.log(error);
-            reject(error);
-          }
-        });
+        if (!data.error) {
+          // Make an API call to assign locations to drones
+          that.droneTripService.assignLocationsToDrones(data).subscribe({
+            next: (droneTrips: any) => {
+              // Update the form with the result of the API call
+              let dataResult = ConverterJsonString.convertDroneTripsJsonToString(droneTrips);
+              that.contentForm.patchValue({ dataResult })
+              that.showSpinner = false;
+              resolve(dataResult);
+            },
+            error: (error) => {
+              that.showSpinner = false;
+              alert(error)
+              console.log(error);
+              reject(error);
+            }
+          });
+        } else {
+          that.showSpinner = false;
+          this.contentForm.patchValue({ dataResult: data.error })
+        }
       };
 
       // Read the file as text

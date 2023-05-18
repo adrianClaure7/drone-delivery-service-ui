@@ -31,7 +31,9 @@ export class ConverterJsonString {
                 locations.push({ name: locationName, weight });
             }
         });
-
+        if (drones.length == 0) {
+            return { error: 'Error' };
+        }
         return { drones, locations };
     }
 
@@ -45,11 +47,12 @@ export class ConverterJsonString {
     static convertStringToDrones(data: string) {
         const droneData = data.split(", ");
         const drones = [];
-
-        for (let i = 0; i < droneData.length; i += 2) {
-            const droneName = droneData[i].replace("[", "").replace("]", "");
-            const maxWeight = parseInt(droneData[i + 1].replace("[", "").replace("]", ""));
-            drones.push({ droneName, maxWeight });
+        if (droneData.length < 100) {
+            for (let i = 0; i < droneData.length; i += 2) {
+                const droneName = droneData[i].replace("[", "").replace("]", "");
+                const maxWeight = parseInt(droneData[i + 1].replace("[", "").replace("]", ""));
+                drones.push({ droneName, maxWeight });
+            }
         }
 
         return drones;
